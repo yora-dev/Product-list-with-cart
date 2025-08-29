@@ -40,11 +40,20 @@ p {
   border-radius: 2rem;
 }
 
+.tablet,
+.desktop {
+  display: none;
+}
+
 .product__image-container {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.product {
+  margin-bottom: 3rem;
 }
 
 .add__btn,
@@ -59,6 +68,7 @@ p {
   font-size: 1.6rem;
   cursor: pointer;
   width: 184px;
+  white-space: nowrap;
 }
 
 .add__btn {
@@ -109,4 +119,70 @@ p {
 .product__price {
   color: var(--price-color);
   font-weight: 600;
+}
+
+.confirmation-container {
+  background-color: var(--confirmation-bg);
+  padding: 2rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.confirm__header {
+  font-size: 2.5rem;
+  color: var(--price-color);
+  align-self: flex-start;
+}
+
+.message {
+  outline-color: var(--Rose-300);
+}
+
+.broken--cake {
+  text-align: center;
+  margin: 4rem 0 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+  }
+
+  .product-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .product {
+    margin-right: 2rem;
+  }
+
+  .confirmation-container {
+    height: fit-content;
+  }
+
+  .mobile-img {
+    display: none;
+  }
+
+  .tablet {
+    display: block;
+  }
+
+  body {
+    padding: 4rem 8rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .tablet {
+    display: none;
+  }
+
+  .desktop {
+    display: block;
+  }
 }
