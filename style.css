@@ -1,0 +1,26 @@
+:root {
+  --price-color: hsl(14, 86%, 42%);
+  --confirmation-tick: hsl(159, 69%, 38%);
+
+  --confirmation-bg: hsl(20, 50%, 98%);
+  --body-bg: hsl(13, 31%, 94%);
+  --Rose-300: hsl(14, 25%, 72%);
+  --confirmation-price: hsl(7, 20%, 60%);
+  --short-name: hsl(12, 20%, 44%);
+  --full-name: hsl(14, 65%, 9%);
+}
+
+* {
+  margin: 0;
+  bottom: 0;
+  box-sizing: border-box;
+  font-family: "Red Hat";
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: var(--body-bg);
+}
