@@ -67,9 +67,11 @@ p {
   font-weight: 600;
   font-size: 1.6rem;
   cursor: pointer;
-  width: 184px;
+  /* width: 184px; */
   white-space: nowrap;
 }
+
+/* FIXME: Fixing add to cart button  */
 
 .add__btn {
   background-color: var(--confirmation-bg);
@@ -119,6 +121,10 @@ p {
 .product__price {
   color: var(--price-color);
   font-weight: 600;
+}
+
+.product__price::before {
+  content: "$";
 }
 
 .confirmation-container {
