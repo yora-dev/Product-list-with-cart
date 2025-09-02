@@ -17,7 +17,7 @@ for (i = 0; i < product.length; i++) {
                 alt=""
                 class="product__image desktop"
               />
-              <button class="add__btn">
+              <button class="add__btn" onclick='addToCart(${product[i].id})'>
                 <img
                   class="cart-img"
                   src="images/icon-add-to-cart.svg"
@@ -46,52 +46,49 @@ for (i = 0; i < product.length; i++) {
             </div>
           </div>`;
 }
-
-let addBtn = document.querySelectorAll('.add__btn');
-addBtn.forEach(function (item) {
-
-  let cart = [];
-  item.addEventListener("click", function () {
-    item.style.display = 'none';
-    let quantityController = document.querySelectorAll('.quantity__controller');
-    quantityController.forEach(item1 => {
-      if (item.parentElement === item1.parentElement) {
-        item1.style.display = 'flex';
-      }
-    })
-    cart.push(item.parentElement.parentElement);
+let cart = [];
+function addToCart(id) {
+  if (cart.some((item) => item.id === id)) {
     console.log(cart);
-    for (j = 0; j < cart.length; j++) {
-      let fullName = cart[j].querySelector('.full-name').textContent;
-      let price = cart[j].querySelector('.product__price').textContent;
+  } else {
+    let item = product.find((productItem) => productItem.id === id);
+    cart.push({ ...item, numberOfUnits: 1 });
+    console.log(cart);
+  }
 
-      let confirmGenerator = document.querySelector('.confirmation-container-item');
-      let selected = `<div class="selected">
+  document.querySelector('.nondynamic').style.display = 'none';
+  let addBtn = document.querySelectorAll('.add__btn');
+  addBtn.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.style.display = 'none';
+      btn.parentElement.children[1].classList.add('border');
+      btn.parentElement.children[4].style.display = 'flex';
+      console.log(btn.parentElement.children[4]);
+    })
+  })
+  updateCart();
+}
+
+let totalSum = 0;
+function updateCart() {
+  document.querySelector('.confirmation').innerHTML = '';
+  cart.forEach((cartItem) => {
+    document.querySelector('.confirmation').innerHTML += `<div class="selected">
           <div class="selected-content">
-            <p class="full-name">${fullName}</p>
+            <p class="full-name">${cartItem.fullName}</p>
             <div class="price-quantity-container">
-              <p class="quantity">1</p>
-              <p class="single-price">${price}</p>
-              <p class="total-price">${price}</p>
+              <p class="quantity">${cartItem.numberOfUnits}</p>
+              <p class="single-price">${cartItem.price}</p>
+              <p class="total-price">${cartItem.price * cartItem.numberOfUnits}</p>
             </div>
           </div>
           <img src="images/icon-remove-item.svg" alt="" class="delete">
-        </div>
-        `
-      let selectedContainer = [];
-      selectedContainer.push(selected);
+        </div> `
 
-      for (k = 0; k < selectedContainer.length; k++) {
-        confirmGenerator.innerHTML += selectedContainer[k];
-      }
-
-
-    }
-
-
+    document.querySelector('span').innerHTML = cart.length;
+    totalSum += cartItem.price * cartItem.numberOfUnits;
+    document.querySelector('.total').innerHTML = totalSum;
 
 
   })
-})
-
-
+}

@@ -15,6 +15,7 @@
   bottom: 0;
   box-sizing: border-box;
   font-family: "Red Hat Text";
+  transition: 0.35s;
 }
 
 html {
@@ -133,7 +134,6 @@ p {
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .confirm__header {
@@ -143,7 +143,8 @@ p {
 }
 
 .message {
-  outline-color: var(--Rose-300);
+  color: var(--Rose-300);
+  text-align: center;
 }
 
 .broken--cake {
@@ -199,6 +200,10 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.selected-content {
+  text-align: left;
 }
 
 .price-quantity-container {
@@ -260,4 +265,18 @@ p {
   font-weight: 700;
   font-size: 1.6rem;
   margin-top: 2rem;
+}
+
+/* .dynamic {
+  display: none;
+} */
+
+.nondynamic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.border {
+  border: 3px solid var(--price-color);
 }
