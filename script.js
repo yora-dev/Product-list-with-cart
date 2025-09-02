@@ -1,3 +1,4 @@
+
 let product = [
   {
     shortName: 'Waffle',
@@ -9,7 +10,7 @@ let product = [
   },
   {
     shortName: 'Creme Brulee',
-    fullName: 'Vanilla Beab Creme Brulee',
+    fullName: 'Vanilla Bean Creme Brulee',
     price: '7.00',
     imgSourceMobile: 'images/image-creme-brulee-mobile.jpg',
     imgSourceTable: 'images/image-creme-brulee-tablet.jpg',
@@ -75,7 +76,8 @@ let product = [
 ];
 
 for (i = 0; i < product.length; i++) {
-  let productGenerator = `<div class="product">
+
+  document.querySelector('.product-container').innerHTML += `<div class="product">
             <div class="product__image-container">
               <img
                 class="product__image mobile-img"
@@ -106,7 +108,7 @@ for (i = 0; i < product.length; i++) {
                   alt=""
                   class="increase"
                 />
-                <p class="product__quantity">4</p>
+                <p class="product__quantity">1</p>
                 <img
                   src="images/icon-decrement-quantity.svg"
                   alt=""
@@ -119,10 +121,54 @@ for (i = 0; i < product.length; i++) {
               <p class="full-name">${product[i].fullName}</</p>
               <p class="product__price">${product[i].price}</</p>
             </div>
-          </div>`
-  document.querySelector('.product-container').innerHTML += productGenerator;
-
-
+          </div>`;
 }
+
+let addBtn = document.querySelectorAll('.add__btn');
+addBtn.forEach(function (item) {
+
+  let cart = [];
+  item.addEventListener("click", function () {
+    item.style.display = 'none';
+    let quantityController = document.querySelectorAll('.quantity__controller');
+    quantityController.forEach(item1 => {
+      if (item.parentElement === item1.parentElement) {
+        item1.style.display = 'flex';
+      }
+    })
+    cart.push(item.parentElement.parentElement);
+    console.log(cart);
+    for (j = 0; j < cart.length; j++) {
+      let fullName = cart[j].querySelector('.full-name').textContent;
+      let price = cart[j].querySelector('.product__price').textContent;
+
+      let confirmGenerator = document.querySelector('.confirmation-container-item');
+      let selected = `<div class="selected">
+          <div class="selected-content">
+            <p class="full-name">${fullName}</p>
+            <div class="price-quantity-container">
+              <p class="quantity">1</p>
+              <p class="single-price">${price}</p>
+              <p class="total-price">${price}</p>
+            </div>
+          </div>
+          <img src="images/icon-remove-item.svg" alt="" class="delete">
+        </div>
+        `
+      let selectedContainer = [];
+      selectedContainer.push(selected);
+
+      for (k = 0; k < selectedContainer.length; k++) {
+        confirmGenerator.innerHTML += selectedContainer[k];
+      }
+
+
+    }
+
+
+
+
+  })
+})
 
 

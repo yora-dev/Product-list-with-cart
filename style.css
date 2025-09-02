@@ -67,7 +67,7 @@ p {
   font-weight: 600;
   font-size: 1.6rem;
   cursor: pointer;
-  /* width: 184px; */
+  width: 184px;
   white-space: nowrap;
 }
 
@@ -191,4 +191,73 @@ p {
   .desktop {
     display: block;
   }
+}
+
+.selected {
+  border-bottom: 1px solid var(--Rose-300);
+  padding-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price-quantity-container {
+  display: flex;
+  gap: 2rem;
+}
+
+.confirmation-container-item {
+  background-color: var(--confirmation-bg);
+  border-radius: 2rem;
+  padding: 2rem;
+  height: fit-content;
+}
+
+.quantity {
+  color: var(--price-color);
+  font-weight: 700;
+}
+
+.quantity::before {
+  content: "x";
+}
+
+.single-price {
+  color: var(--confirmation-price);
+  font-weight: 600;
+}
+
+.total-price {
+  color: var(--confirmation-price);
+  font-weight: 700;
+}
+
+.single-price::before {
+  content: "@  $";
+}
+
+.total-price::before {
+  content: "$";
+}
+
+.order-total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.total::before {
+  content: "$";
+}
+
+.confimation__btn {
+  width: 100%;
+  border: none;
+  background-color: var(--price-color);
+  color: var(--confirmation-bg);
+  padding: 2rem;
+  border-radius: 12rem;
+  font-weight: 700;
+  font-size: 1.6rem;
+  margin-top: 2rem;
 }
