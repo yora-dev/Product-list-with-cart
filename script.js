@@ -1,3 +1,16 @@
+
+function btnUpdate() {
+  let addBtn = document.querySelectorAll('.add__btn');
+  addBtn.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.style.display = 'none';
+      btn.parentElement.children[1].classList.add('border');
+      btn.parentElement.children[4].style.display = 'flex';
+      console.log(btn.parentElement.children[4]);
+    })
+  })
+}
+
 for (i = 0; i < product.length; i++) {
 
   document.querySelector('.product-container').innerHTML += `<div class="product">
@@ -26,13 +39,13 @@ for (i = 0; i < product.length; i++) {
                 Add to Cart
               </button>
               <button class="quantity__controller">
-                <img
+                <img onclick="changeNumber('plus', ${product[i].id})"
                   src="images/icon-increment-quantity.svg"
                   alt=""
                   class="increase"
                 />
-                <p class="product__quantity">1</p>
-                <img
+                <p class="product__quantity">${product[i].numberOfUnits}</p>
+                <img onclick="changeNumber('minus', ${product[i].id})"
                   src="images/icon-decrement-quantity.svg"
                   alt=""
                   class="decrease"
@@ -45,27 +58,22 @@ for (i = 0; i < product.length; i++) {
               <p class="product__price">${product[i].price}</</p>
             </div>
           </div>`;
+
+
+
 }
 let cart = [];
 function addToCart(id) {
   if (cart.some((item) => item.id === id)) {
-    console.log(cart);
+    // console.log(cart);
+    changeNumber(plus, id);
   } else {
     let item = product.find((productItem) => productItem.id === id);
     cart.push({ ...item, numberOfUnits: 1 });
-    console.log(cart);
   }
 
   document.querySelector('.nondynamic').style.display = 'none';
-  let addBtn = document.querySelectorAll('.add__btn');
-  addBtn.forEach(btn => {
-    btn.addEventListener('click', () => {
-      btn.style.display = 'none';
-      btn.parentElement.children[1].classList.add('border');
-      btn.parentElement.children[4].style.display = 'flex';
-      console.log(btn.parentElement.children[4]);
-    })
-  })
+
   updateCart();
 }
 
@@ -74,21 +82,48 @@ function updateCart() {
   document.querySelector('.confirmation').innerHTML = '';
   cart.forEach((cartItem) => {
     document.querySelector('.confirmation').innerHTML += `<div class="selected">
-          <div class="selected-content">
-            <p class="full-name">${cartItem.fullName}</p>
-            <div class="price-quantity-container">
-              <p class="quantity">${cartItem.numberOfUnits}</p>
-              <p class="single-price">${cartItem.price}</p>
-              <p class="total-price">${cartItem.price * cartItem.numberOfUnits}</p>
-            </div>
-          </div>
-          <img src="images/icon-remove-item.svg" alt="" class="delete">
-        </div> `
+    <div class="selected-content">
+    <p class="full-name">${cartItem.fullName}</p>
+    <div class="price-quantity-container">
+    <p class="quantity">${cartItem.numberOfUnits}</p>
+    <p class="single-price">${cartItem.price}</p>
+    <p class="total-price">${cartItem.price * cartItem.numberOfUnits}</p>
+    </div>
+    </div>
+    <img src="images/icon-remove-item.svg" alt="" class="delete">
+    </div> `
 
     document.querySelector('span').innerHTML = cart.length;
     totalSum += cartItem.price * cartItem.numberOfUnits;
     document.querySelector('.total').innerHTML = totalSum;
 
+    
+
 
   })
 }
+
+function changeNumber(action, id) {
+  cart = cart.map((product) => {
+    let numberOfUnits = product.numberOfUnits;
+
+    if (product.id === id) {
+      if (action === 'minus') {
+        numberOfUnits--;
+      } else if (action === 'plus') {
+        numberOfUnits++;
+      }
+    }
+
+    return {
+      ...product,
+      numberOfUnits,
+    };
+  });
+
+
+
+  updateCart();
+
+}
+btnUpdate();

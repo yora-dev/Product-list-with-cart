@@ -6,7 +6,8 @@ let product = [
     price: '6.50',
     imgSourceMobile: 'images/image-waffle-mobile.jpg',
     imgSourceTable: 'images/image-waffle-tablet.jpg',
-    imgSourceDesktop: 'images/image-waffle-desktop.jpg'
+    imgSourceDesktop: 'images/image-waffle-desktop.jpg',
+    numberOfUnits: 1
   },
   {
     id: 1,
@@ -15,7 +16,9 @@ let product = [
     price: '7.00',
     imgSourceMobile: 'images/image-creme-brulee-mobile.jpg',
     imgSourceTable: 'images/image-creme-brulee-tablet.jpg',
-    imgSourceDesktop: 'images/image-creme-brulee-desktop.jpg'
+    imgSourceDesktop: 'images/image-creme-brulee-desktop.jpg',
+    numberOfUnits: 1
+
   },
   {
     id: 2,
@@ -24,7 +27,9 @@ let product = [
     price: '8.00',
     imgSourceMobile: 'images/image-macaron-mobile.jpg',
     imgSourceTable: 'images/image-macaron-tablet.jpg',
-    imgSourceDesktop: 'images/image-macaron-desktop.jpg'
+    imgSourceDesktop: 'images/image-macaron-desktop.jpg',
+    numberOfUnits: 1
+
   },
   {
     id: 3,
@@ -33,7 +38,9 @@ let product = [
     price: '5.50',
     imgSourceMobile: 'images/image-tiramisu-mobile.jpg',
     imgSourceTable: 'images/image-tiramisu-tablet.jpg',
-    imgSourceDesktop: 'images/image-tiramisu-desktop.jpg'
+    imgSourceDesktop: 'images/image-tiramisu-desktop.jpg',
+    numberOfUnits: 1
+
   },
   {
     id: 4,
@@ -42,7 +49,9 @@ let product = [
     price: '4.00',
     imgSourceMobile: 'images/image-baklava-mobile.jpg',
     imgSourceTable: 'images/image-baklava-tablet.jpg',
-    imgSourceDesktop: 'images/image-baklava-desktop.jpg'
+    imgSourceDesktop: 'images/image-baklava-desktop.jpg',
+    numberOfUnits: 1
+
   },
   {
     id: 5,
@@ -51,7 +60,9 @@ let product = [
     price: '5.00',
     imgSourceMobile: 'images/image-meringue-mobile.jpg',
     imgSourceTable: 'images/image-meringue-tablet.jpg',
-    imgSourceDesktop: 'images/image-meringue-desktop.jpg'
+    imgSourceDesktop: 'images/image-meringue-desktop.jpg',
+    numberOfUnits: 1
+
   },
   {
     id: 6,
@@ -60,7 +71,10 @@ let product = [
     price: '4.50',
     imgSourceMobile: 'images/image-cake-mobile.jpg',
     imgSourceTable: 'images/image-cake-tablet.jpg',
-    imgSourceDesktop: 'images/image-cake-desktop.jpg'
+    imgSourceDesktop: 'images/image-cake-desktop.jpg',
+    numberOfUnits: 1
+
+
   },
 
   {
@@ -70,7 +84,9 @@ let product = [
     price: '5.50',
     imgSourceMobile: 'images/image-brownie-mobile.jpg',
     imgSourceTable: 'images/image-brownie-tablet.jpg',
-    imgSourceDesktop: 'images/image-brownie-desktop.jpg'
+    imgSourceDesktop: 'images/image-brownie-desktop.jpg',
+    numberOfUnits: 1
+
   },
   {
     id: 8,
@@ -79,6 +95,8 @@ let product = [
     price: '6.50',
     imgSourceMobile: 'images/image-panna-cotta-mobile.jpg',
     imgSourceTable: 'images/image-panna-cotta-tablet.jpg',
-    imgSourceDesktop: 'images/image-panna-cotta-desktop.jpg'
+    imgSourceDesktop: 'images/image-panna-cotta-desktop.jpg',
+    numberOfUnits: 1
+
   }
 ];
