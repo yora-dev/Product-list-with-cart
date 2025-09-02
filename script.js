@@ -58,14 +58,11 @@ for (i = 0; i < product.length; i++) {
               <p class="product__price">${product[i].price}</</p>
             </div>
           </div>`;
-
-
-
 }
+
 let cart = [];
 function addToCart(id) {
   if (cart.some((item) => item.id === id)) {
-    // console.log(cart);
     changeNumber(plus, id);
   } else {
     let item = product.find((productItem) => productItem.id === id);
@@ -73,7 +70,6 @@ function addToCart(id) {
   }
 
   document.querySelector('.nondynamic').style.display = 'none';
-
   updateCart();
 }
 
@@ -96,18 +92,17 @@ function updateCart() {
     document.querySelector('span').innerHTML = cart.length;
     totalSum += cartItem.price * cartItem.numberOfUnits;
     document.querySelector('.total').innerHTML = totalSum;
-
-    
-
-
+    let counter = document.querySelectorAll('.product__quantity');
+    let increase = document.querySelectorAll('.increase');
+    let decrease = document.querySelectorAll('.decrease');
   })
 }
 
 function changeNumber(action, id) {
-  cart = cart.map((product) => {
-    let numberOfUnits = product.numberOfUnits;
-
-    if (product.id === id) {
+  cart = cart.map((products) => {
+    let numberOfUnits = products.numberOfUnits;
+    products
+    if (products.id === id) {
       if (action === 'minus') {
         numberOfUnits--;
       } else if (action === 'plus') {
@@ -116,14 +111,10 @@ function changeNumber(action, id) {
     }
 
     return {
-      ...product,
+      ...products,
       numberOfUnits,
     };
   });
-
-
-
   updateCart();
-
 }
 btnUpdate();
