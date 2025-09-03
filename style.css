@@ -280,3 +280,78 @@ p {
 .border {
   border: 3px solid var(--price-color);
 }
+
+.popup {
+  padding: 2rem;
+  border-radius: 1rem;
+  margin-top: 3rem;
+  background-color: var(--confirmation-bg);
+}
+
+.complete {
+  margin-bottom: 2rem;
+}
+
+.popup__header {
+  color: var(--full-name);
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.popup__message {
+  margin-bottom: 1rem;
+  color: var(--confirmation-price);
+}
+
+.thumpnail-container {
+  padding: 1rem;
+  background-color: var(--body-bg);
+  border-radius: 1rem;
+  gap: 1rem;
+}
+
+.thumb-child {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.thupm-quantity {
+  display: flex;
+}
+
+.imgTumb {
+  width: 50px;
+  height: 50px;
+  margin-right: 1rem;
+}
+
+.thump-name .full-name {
+  margin: 0;
+}
+
+.thupm-quantity .quantity {
+  margin-right: 1rem;
+}
+
+.container {
+  position: relative;
+}
+
+.popup {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  height: fit-content;
+  display: none;
+}
+
+.popupup {
+  display: block;
+}
+
+.thupm-quantity .total-price {
+  text-align: right;
+  justify-self: flex-end;
+}

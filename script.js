@@ -79,23 +79,58 @@ function updateCart() {
   cart.forEach((cartItem) => {
     document.querySelector('.confirmation').innerHTML += `<div class="selected">
     <div class="selected-content">
-    <p class="full-name">${cartItem.fullName}</p>
-    <div class="price-quantity-container">
-    <p class="quantity">${cartItem.numberOfUnits}</p>
-    <p class="single-price">${cartItem.price}</p>
-    <p class="total-price">${cartItem.price * cartItem.numberOfUnits}</p>
+      <p class="full-name">${cartItem.fullName}</p>
+      <div class="price-quantity-container">
+      <p class="quantity">${cartItem.numberOfUnits}</p>
+      <p class="single-price">${cartItem.price}</p>
+      <p class="total-price">${cartItem.price * cartItem.numberOfUnits}</p>
+      </div>
     </div>
-    </div>
-    <img src="images/icon-remove-item.svg" alt="" class="delete">
+    <img src="images/icon-remove-item.svg" alt="" class="delete" onclick="removeItem(${cartItem.id})"/>
     </div> `
 
     document.querySelector('span').innerHTML = cart.length;
     totalSum += cartItem.price * cartItem.numberOfUnits;
-    document.querySelector('.total').innerHTML = totalSum;
+    document.querySelectorAll('.total')[0].innerHTML = totalSum;
     let counter = document.querySelectorAll('.product__quantity');
     let increase = document.querySelectorAll('.increase');
     let decrease = document.querySelectorAll('.decrease');
+    increase.forEach((btn, index) => {
+      btn.addEventListener('click', () => {
+        counter[index].innerHTML = cart[index].numberOfUnits;
+      })
+    })
+
+    decrease.forEach((btn, index) => {
+      btn.addEventListener('click', () => {
+        counter[index].innerHTML = cart[index].numberOfUnits;
+      })
+    })
+
   })
+  document.querySelector('.thumpnail-container').innerHTML = '';
+  cart.forEach((cartItemItem) => {
+    document.querySelector('.thumpnail-container').innerHTML += `
+          <div class="thumb-child">
+            <img
+              src=${cartItemItem.thumbnail}
+              alt=""
+              class="imgTumb"
+            />
+            <div class="thump-name">
+              <p class="full-name">${cartItemItem.fullName}</p>
+              <div class="thupm-quantity">
+                <p class="quantity">${cartItemItem.numberOfUnits}</p>
+                <p class="single-price">${cartItemItem.price}</p>
+              </div>
+            </div>
+            <p class="total-price">${cartItemItem.price * cartItemItem.numberOfUnits}</p>
+          </div>
+        `
+    document.querySelectorAll('.total')[1].innerHTML = totalSum;
+  })
+
+
 }
 
 function changeNumber(action, id) {
@@ -118,3 +153,19 @@ function changeNumber(action, id) {
   updateCart();
 }
 btnUpdate();
+
+document.querySelector('.confirm').addEventListener('click', function () {
+  document.querySelector('.popup').classList.add('popupup');
+});
+
+document.querySelector('.start').addEventListener('click', function () {
+  document.querySelector('.popup').classList.remove('popupup');
+});
+
+removeItem = (id) => {
+  cart = cart.filter((cartItem) => cartItem.id !== id);
+  if (cart.length === 0) {
+    document.querySelector('.nondynamic').style.display = 'block';
+  }
+  updateCart();
+}
