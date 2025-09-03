@@ -160,6 +160,7 @@ document.querySelector('.confirm').addEventListener('click', function () {
 
 document.querySelector('.start').addEventListener('click', function () {
   document.querySelector('.popup').classList.remove('popupup');
+  cart = [];
 });
 
 removeItem = (id) => {

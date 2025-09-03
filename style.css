@@ -345,6 +345,7 @@ p {
   left: 50%;
   height: fit-content;
   display: none;
+  backdrop-filter: blur(5px);
 }
 
 .popupup {
@@ -354,4 +355,8 @@ p {
 .thupm-quantity .total-price {
   text-align: right;
   justify-self: flex-end;
+}
+
+button {
+  cursor: pointer;
 }
