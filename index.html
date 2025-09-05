@@ -31,9 +31,12 @@
             <p class="total-text">Total Order</p>
             <h1 class="total">0</h1>
           </div>
-          <button class="confimation__btn confirm">Confirm Order</button>
+          <button class="confimation__btn confirm" onclick="openModal()">
+            Confirm Order
+          </button>
         </div>
       </div>
+      <div class="overlay"></div>
 
       <div class="popup">
         <img src="images/icon-order-confirmed.svg" alt="" class="complete" />
@@ -45,7 +48,9 @@
             <p class="total-text">Total Order</p>
             <h1 class="total">0</h1>
           </div>
-          <button class="confimation__btn start">Start New Order</button>
+          <button class="confimation__btn start" onclick="closeModal()">
+            Start New Order
+          </button>
         </div>
       </div>
     </div>
